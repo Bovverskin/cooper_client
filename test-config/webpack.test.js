@@ -10,14 +10,14 @@ module.exports = {
 
   module: {
     rules: [{
-        test: ,
+        test: /\.ts$/,
         loaders: [{
           loader: 'ts-loader'
         }, 'angular2-template-loader']
       },
       {
-        test: ,
-        exclude: ,
+        test: /.+\.ts$/,
+        exclude: /(index.ts|mocks.ts|\.spec\.ts$)/,
         loader: 'istanbul-instrumenter-loader',
         enforce: 'post',
         query: {
@@ -25,11 +25,11 @@ module.exports = {
         }
       },
       {
-        test: ,
+        test: /\.html$/,
         loader: 'html-loader?attrs=false'
       },
       {
-        test: ,
+        test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
         loader: 'null-loader'
       }
     ]
@@ -37,7 +37,7 @@ module.exports = {
 
   plugins: [
     new webpack.ContextReplacementPlugin(
-      ,
+      /(ionic-angular)|(angular(\\|\/)core(\\|\/)@angular)/,
       root('./src'),
       {}
     )
