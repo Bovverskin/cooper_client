@@ -1,29 +1,44 @@
 import { browser, by, element } from 'protractor';
 
-fillInForm(distance, gender, age) {
+export class Page {
+    navigateTo(destination) {
+        return browser.get(destination);
+    }
 
-    element(by.css('text-input')).clear().then(() => {
-        element(by.css('.text-input')).sendKeys(distance);
-    })
+    getTitle() {
+        return browser.getTitle();
+    }
 
-    element(by.css('.select')).click().then(() => {  
+    getPageOneTitleText() {
+        return element(by.tagName('page-one')).element(by.tagName('ion-title')).getText();
+    }
+
+
+    fillInForm(distance, gender, age) {
+
+        //element(by.css('text-input')).clear().then(() => {
+            //element(by.css('.text-input')).sendKeys(distance);
+        //})
+
+        element(by.css('.select')).click().then(() => {  
+            browser.sleep(500); 
+
+            element(by.cssContainingText('.button-inner', gender)).click(); 
+            element(by.cssContainingText('.button-inner', 'OK')).click();  
+
+        })
+
         browser.sleep(500); 
 
-        element(by.cssContainingText('.button-inner', gender)).click(); 
-        element(by.cssContainingText('.button-inner', 'OK')).click();  
+        element(by.cssContainingText('.button', 'Calculate')).click();  
 
-    })
+    }
 
-    browser.sleep(500); 
+    results_card_header() {
+        return element(by.css('ion-card-header')).getText();
+    } 
 
-    element(by.cssContainingText('.button', 'Calculate')).click();  
-
-}
-
-results_card_header() {
-    return element(by.css('ion-card-header')).getText();
-} 
-
-results_card_content() {
-    return element(by.css('ion-card-content')).getAttribute('textContent');
+    results_card_content() {
+        return element(by.css('ion-card-content')).getAttribute('textContent');
+    }
 } 
