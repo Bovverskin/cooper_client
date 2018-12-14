@@ -16,6 +16,7 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
   currentUser: any;
+  alertCtrl: any;
 
   constructor(public platform: Platform,
     public statusBar: StatusBar, 

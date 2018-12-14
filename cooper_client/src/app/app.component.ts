@@ -15,6 +15,7 @@ export class MyApp {
   rootPage: any = HomePage;
 
   pages: Array<{title: string, component: any}>;
+  currentUser: any;
 
   constructor(public platform: Platform, 
     public statusBar: StatusBar, 
