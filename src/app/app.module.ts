@@ -18,7 +18,8 @@ import { PerformanceDataProvider } from '../providers/performance-data/performan
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    ResultsPage
   ],
   imports: [
     BrowserModule,
@@ -30,7 +31,8 @@ import { PerformanceDataProvider } from '../providers/performance-data/performan
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    ResultsPage
   ],
   providers: [
     StatusBar,
