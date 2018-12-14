@@ -39,6 +39,15 @@
                 (chartClick)="chartClicked($event)">
         </canvas>
       </div>
+
+      <div padding-top style="display: block">
+        <canvas baseChart [data]="data"
+                [labels]="labels"
+                [chartType]="radarChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)">
+        </canvas>
+      </div>
     </ion-list>
   </div>
 </ion-content>

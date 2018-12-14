@@ -26,7 +26,7 @@ export class ResultsPage {
           this.results = data.entries;
           this.labels = this.getLabels(this.results);
           this.labels.forEach(label => {
-            this.data.push(this.getCount(this.results, label))
+            this.data.push(this.getCount(this.results, label));
           })
         });
     }
@@ -42,7 +42,7 @@ export class ResultsPage {
       return uniqueLabels;
     }
 
-    getCount(collection: any, value: any) {
+    getCount(collection:any, value:any) {
       let count = 0;
 
       collection.forEach(entry => {

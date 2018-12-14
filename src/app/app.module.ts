@@ -4,6 +4,7 @@ import { Angular2TokenService } from 'angular2-token';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { ChartsModule } from 'ng2-charts';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -17,18 +18,19 @@ import { PerformanceDataProvider } from '../providers/performance-data/performan
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
+    HomePage
   ],
   imports: [
     BrowserModule,
     HttpModule,
     RouterModule,
     IonicModule.forRoot(MyApp),
+    ChartsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
+    HomePage
   ],
   providers: [
     StatusBar,
