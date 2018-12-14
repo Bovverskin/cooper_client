@@ -19,7 +19,14 @@ describe("HomePage", () => {
         ],
         imports: [IonicModule.forRoot(HomePage)],
         providers: [
-          { provide: Platform, useFactory: () => PlatformMock.instance() },
+          { provide: Platform, _useFactory: () => PlatformMock.instance(),
+get useFactory() {
+            return this._useFactory;
+          },
+set useFactory(value) {
+            this._useFactory = value;
+          },
+ },
           { provide: StatusBar, useFactory: () => StatusBarMock.instance() },
           { provide: SplashScreen, useFactory: () => SplashScreenMock.instance() },
           { provide: NavController, useFactory: () => NavControllerMock.instance() },
