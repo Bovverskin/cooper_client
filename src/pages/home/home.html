@@ -7,45 +7,43 @@
     </ion-navbar>
   </ion-header>
   
-  <ion-content padding>  
-      <ion-list>
-          <ion-item>
-              <ion-label floating>Distance</ion-label>
-              <ion-input type="number" [(ngModel)]="user.distance"></ion-input>
-          </ion-item>
-          <ion-item>
-              <ion-label>Gender</ion-label>
-              <ion-select [(ngModel)]="user.gender">
-                  <ion-option value="female">Female</ion-option>
-                  <ion-option value="male">Male</ion-option>
-              </ion-select>
-          </ion-item>
-          <ion-item>
-              <ion-label>Age:
-                  <ion-badge *ngIf="user.age"> {{user.age}}</ion-badge>
-              </ion-label>
-              <ion-range min="10" max="120" [(ngModel)]="user.age" >
-                  <ion-label range-left>10</ion-label>
-                  <ion-label range-right>120</ion-label>
-              </ion-range>
-          </ion-item>
-          <button ion-item (click)="loginPopUp()" *ngIf="!currentUser">
-              Login
-            </button>
-            <button ion-item (click)="logout()" *ngIf="currentUser">
-              Logout {{currentUser.email}}
-            </button>
-      </ion-list>
-      
-      <button block ion-button (click)="calculate(user)">Calculate</button>
-      <button block ion-button (click)="showResults()">All Results</button>
-      
-      <ion-card *ngIf="person?.assessmentMessage">
-        <ion-card-header>
-          Cooper Test Results
-        </ion-card-header>
-        <ion-card-content>
-          Gender: {{person?.gender}}, Age: {{person?.age}} <br/> Result: {{person?.assessmentMessage}}
-        </ion-card-content>
-      n</ion-card>
+  <ion-content padding>
+  
+    <ion-list>
+      <ion-item>
+          <ion-label floating>Distance</ion-label>
+          <ion-input type="number" [(ngModel)]="user.distance"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label>Gender</ion-label>
+          <ion-select [(ngModel)]="user.gender">
+              <ion-option value="female">Female</ion-option>
+              <ion-option value="male">Male</ion-option>
+          </ion-select>
+      </ion-item>
+      <ion-item>
+          <ion-label>Age:
+              <ion-badge *ngIf="user.age"> {{user.age}}</ion-badge>
+          </ion-label>
+          <ion-range min="10" max="120" [(ngModel)]="user.age" >
+              <ion-label range-left>10</ion-label>
+              <ion-label range-right>120</ion-label>
+          </ion-range>
+      </ion-item>
+  </ion-list>
+  
+  <button block ion-button (click)="calculate(user)">Calculate</button>
+  <button block ion-button (click)="showResults()">All Results</button>
+  
+  <ion-card *ngIf="person?.assessmentMessage">
+          <ion-card-header>
+              Cooper Test Results
+          </ion-card-header>
+          <ion-card-content>
+              Gender: {{person?.gender}}, Age: {{person?.age}} <br/> Result: {{person?.assessmentMessage}}
+          </ion-card-content>
+          <button block ion-button (click)="saveResults()">Save Data</button>
+  </ion-card>
+  
+  
   </ion-content>
